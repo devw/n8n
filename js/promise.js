@@ -1,8 +1,7 @@
 const main = async () => {
-    const urls = ['https://jsonplaceholder.typicode.com/todos/1', 'https://jsonplaceholder.typicode.com/todos/2', 'https://jsonplaceholder.typicode.com/todos/3'];
-    const promises = urls.map(async (url) => {
-        const response = await fetch(url);
-		await new Promise(r => setTimeout(r, 1000));
+	const todo_ids = [1, 2, 3]
+    const promises = todo_ids.map(async (id) => {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
         return await response.json();
     });
 	console.time('Fetching Data'); // Start timing
